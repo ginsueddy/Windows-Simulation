@@ -1,13 +1,12 @@
 package com.company;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Main {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("App");
-        frame.setContentPane(new WindowsApp().getPanelMain());
+        frame.setContentPane(new MyJPanel().getPanelMain());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1000, 600);
         frame.setResizable(false);
