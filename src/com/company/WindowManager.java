@@ -8,12 +8,11 @@ public class WindowManager {
 
     public WindowManager(ArrayList<Window> windows){
         this.windows = windows;
-        addWindow(windows);
     }
 
-    public void addWindow(ArrayList<Window> windows){
-        Window window = new Window(500, 400, 0);
-        windows.add(0, window);
+    public void addWindow(int zOrder){
+        Window window = new Window(500, 400, zOrder, 100, 100);
+        this.windows.add(zOrder, window);
 
     }
 
@@ -25,7 +24,7 @@ public class WindowManager {
 
     }
 
-    public void findWindow(){
+    public void findWindowByPosition(){
 
     }
 

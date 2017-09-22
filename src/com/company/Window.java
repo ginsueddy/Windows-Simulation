@@ -6,6 +6,7 @@ public class Window implements Comparable<Window>{
     private int zOrder;
     private int width;
     private int height;
+    //add color later
 
     public Window (int xCor, int yCor, int zOrder, int width, int height){
         this.xCor = xCor;
@@ -17,7 +18,15 @@ public class Window implements Comparable<Window>{
 
     @Override
     public int compareTo(Window o) {
-        return 0;
+        if(zOrder > o.getzOrder()){
+            return 1;
+        }
+        else if(zOrder < o.getzOrder()){
+            return -1;
+        }
+        else {
+            return 0;
+        }
     }
 
     public void drawWindow(){
@@ -42,14 +51,6 @@ public class Window implements Comparable<Window>{
 
     public int getyCor() {
         return yCor;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
     }
 
     public int getzOrder() {
