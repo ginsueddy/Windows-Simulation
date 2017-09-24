@@ -1,5 +1,7 @@
 package com.company;
 
+import java.awt.*;
+
 public class Window implements Comparable<Window>{
     private int xCor;
     private int yCor;
@@ -29,8 +31,8 @@ public class Window implements Comparable<Window>{
         }
     }
 
-    public void drawWindow(){
-
+    public void drawWindow(Graphics g){
+        g.fillRect(xCor, yCor, width, height);
     }
 
     public void setxCor(int xCor) {

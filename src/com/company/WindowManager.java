@@ -1,5 +1,6 @@
 package com.company;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class WindowManager {
@@ -15,10 +16,10 @@ public class WindowManager {
         this.windows.add(zOrder, window);
     }
 
-    public void drawWindows(){
+    public void drawWindows(Graphics g){
         for(int i = 0; i < windows.size(); i++){
             Window window = windows.get(i);
-            window.drawWindow();
+            window.drawWindow(g);
         }
 
     }
