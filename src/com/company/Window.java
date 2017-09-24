@@ -26,10 +26,10 @@ public class Window implements Comparable<Window>{
     @Override
     public int compareTo(Window o) {
         if(zOrder > o.getzOrder()){
-            return 1;
+            return -1;
         }
         else if(zOrder < o.getzOrder()){
-            return -1;
+            return 1;
         }
         else {
             return 0;
