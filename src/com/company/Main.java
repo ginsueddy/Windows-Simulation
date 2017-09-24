@@ -14,6 +14,5 @@ public class Main {
         frame.setResizable(false);
         frame.add(myJPanel);
         frame.setVisible(true);
-
     }
 }

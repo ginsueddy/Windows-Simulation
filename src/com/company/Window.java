@@ -8,14 +8,15 @@ public class Window implements Comparable<Window>{
     private int zOrder;
     private int width;
     private int height;
-    //add color later
+    private Color color;
 
-    public Window (int xCor, int yCor, int zOrder, int width, int height){
+    public Window (int xCor, int yCor, int zOrder, int width, int height, Color color){
         this.xCor = xCor;
         this.yCor = yCor;
         this.zOrder = zOrder;
         this.width = width;
         this.height = height;
+        this.color = color;
     }
 
     @Override
@@ -32,6 +33,7 @@ public class Window implements Comparable<Window>{
     }
 
     public void drawWindow(Graphics g){
+        g.setColor(color);
         g.fillRect(xCor, yCor, width, height);
     }
 
