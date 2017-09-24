@@ -38,7 +38,13 @@ public class WindowManager {
 
     }
 
-    public void findWindowByPosition(){
+    public void findWindowByPosition(int mouseX, int mouseY){
+        for(int i = 0; i < windows.size(); i++){
+            Window window = windows.get(i);
+            if(window.getX1() <= mouseX && mouseX <= window.getX2() && window.getY1() <= mouseY && mouseY <= window.getY2()){
+                System.out.println("You clicked on a window!!");
+            }
+        }
 
     }
 
