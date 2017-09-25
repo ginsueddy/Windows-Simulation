@@ -49,7 +49,7 @@ public class WindowManager {
 
     public Window findWindowByPosition(int mouseX, int mouseY){
         ArrayList<Window> windowsAtPosition = new ArrayList<Window>();
-        Window selectedWindow = windows.get(0);
+        Window selectedWindow = windows.get(windows.size()-1);
 
         for(int i = 0; i < windows.size(); i++){
             Window window = windows.get(i);
