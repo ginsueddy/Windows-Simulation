@@ -34,7 +34,16 @@ public class WindowManager {
 
     }
 
-    public void bringToFront(){
+    public void bringToFront(Window selectedWindow){
+        for(int i = 0; i < windows.size(); i++){
+            if(selectedWindow.getzOrder() == windows.get(i).getzOrder()){
+                windows.remove(windows.get(i));
+                windows.add(selectedWindow);
+                for(int j = 0; j < windows.size(); j++){
+                    windows.get(j).setzOrder(j);
+                }
+            }
+        }
 
     }
 
@@ -44,11 +53,12 @@ public class WindowManager {
 
         for(int i = 0; i < windows.size(); i++){
             Window window = windows.get(i);
-            if(window.getX1() <= mouseX && mouseX <= window.getX2() && window.getY1() <= mouseY && mouseY <= window.getY2()){
+            int x2 = window.getX() + window.getWidth();
+            int y2 = window.getY() + window.getHeight();
+            if(window.getX() <= mouseX && mouseX <= x2 && window.getY() <= mouseY && mouseY <= y2){
                 windowsAtPosition.add(window);
             }
         }
-        System.out.println(windowsAtPosition.size());
         if(windowsAtPosition.size() > 1) {
             for(int i = 0; i < windowsAtPosition.size() - 1; i++){
                 if(windowsAtPosition.get(i).compareTo(windowsAtPosition.get(i+1)) == 1){
@@ -56,10 +66,19 @@ public class WindowManager {
                 }
             }
         }
-        else{
+        else if(windowsAtPosition.size() == 1){
             selectedWindow = windowsAtPosition.get(0);
         }
         return selectedWindow;
+    }
+
+    public void changeWindowCoordinates(int x, int y, int xDisplacement, int yDisplacement){
+        Window selectedWindow = windows.get(windows.size() - 1);
+        int changeX1 = x - xDisplacement;
+        int changeY1 = y - yDisplacement;
+
+        selectedWindow.setX(changeX1);
+        selectedWindow.setY(changeY1);
     }
 
     public ArrayList<Window> getWindows() {
